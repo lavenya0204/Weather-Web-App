@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Web-App</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Luckiest+Guy&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+VN:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&family=Luckiest+Guy&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+VN:wght@100..400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <form action="/weather" method="POST">
+                <input type="text" name="cityName" placeholder="Enter city name" spellcheck="false" required />
+                <button type="submit"><img src="/images/search.png" /></button>
+            </form>
+        </div>
+
+        <% if (weatherData) { %>
+        <div class="mainContent">
+            <img src=<%= weatherData.weatherImage %> class="weatherImage" alt="Weather Image">
+            <h1 class="temp"><%= weatherData.temp %>°C</h1>
+            <h2 class="cityName"><%= weatherData.city %></h2>
+            
+            <p class="desc"><%= weatherData.desc %></p>
+        </div>
+
+        <hr color="#BCCCDC">
+        
+        <div class="extras">
+            <div class="det">
+                <img src="/images/humidity.png">
+                <h4>Humidity</h4>
+                <p class="humidity"><%= weatherData.humidity %>%</p>
+            </div>
+            <div class="det">
+                <img src="/images/wind.png">
+                <h4>Wind</h4>
+                <p class="wind"><%= weatherData.wind %> km/h</p>
+            </div>
+            <div class="det">
+                <img src="/images/uvi.png">
+                <h4>Pressure</h4>
+                <p class="uvi"><%= weatherData.pressure %> hPa</p>
+            </div>
+            <div class="det">
+                <img src="/images/visibility.png">
+                <h4>Visibility</h4>
+                <p class="visibility"><%= weatherData.visibility / 1000 %> km</p>
+            </div>
+        </div>
+        <% } %>
+
+        <% if (error) { %>
+        <p class="error"><%= error %></p>
+        <% } %>
+    </div>
+</body>
+</html>
