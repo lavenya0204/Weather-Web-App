@@ -24,3 +24,11 @@ A weather web app that fetches real-time weather updates using OpenWeather API a
 
 ### Prerequisites
 - Node.js and npm installed on your system.
+
+## Screenshots
+
+### Initial Homepage UI
+![Initial Home Page UI](https://github.com/lavenya0204/Weather-Web-App/blob/main/screenshots/Initial-UI.png)
+
+### Weather Display UI
+![Weather Display UI](https://github.com/lavenya0204/Weather-Web-App/blob/main/screenshots/WeatherWebAppUI.png)
